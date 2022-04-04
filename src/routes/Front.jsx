@@ -34,7 +34,7 @@ export default function Front() {
         value={input}
         onChange={(e) => setInput(e.target.value)}
       />
-      <Button variant="contained" color="primary">
+      <Button variant="contained" type="submit" color="primary">
         Find
       </Button>
     </form>
