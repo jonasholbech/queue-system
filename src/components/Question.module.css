@@ -1,0 +1,23 @@
+.question {
+}
+.question > * {
+  padding: 1rem;
+}
+summary {
+  font-weight: bold;
+}
+.header {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.timeAgo {
+  margin-left: auto;
+}
+.question footer {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #000;
+  display: flex;
+  gap: 1rem;
+}
