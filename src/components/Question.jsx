@@ -1,4 +1,4 @@
-import { Card, Avatar, Paper, Button } from "@mui/material";
+import { Avatar, Paper, Button } from "@mui/material";
 import { formatDistanceToNow } from "date-fns";
 import { ref, update, remove } from "firebase/database";
 import { db } from "../firebase";
