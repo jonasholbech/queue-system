@@ -9,11 +9,13 @@ import {
   onChildRemoved,
 } from "firebase/database";
 
+import { useSimpleAuth } from "../hooks/useSimpleAuth.js";
 import AskQuestion from "../components/AskQuestion";
 import Question from "../components/Question";
 function Room() {
   const [questions, setQuestions] = useState([]);
   const firstRender = useRef(true);
+  useSimpleAuth();
   let params = useParams();
   useEffect(() => {
     if (firstRender.current) {
