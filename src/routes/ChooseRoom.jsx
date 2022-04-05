@@ -1,13 +1,14 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { TextField, Button, Paper } from "@mui/material";
 import { db } from "../firebase";
 import { child, get, ref } from "firebase/database";
 import { useNavigate } from "react-router-dom";
 import { useSimpleAuth } from "../hooks/useSimpleAuth";
-export default function Front() {
+export default function ChooseRoom() {
   const [input, setInput] = useState("");
   const [wrong, setWrong] = useState(false);
   useSimpleAuth();
+  const field = useRef(null);
   let navigate = useNavigate();
   function removeAnimation() {
     setWrong(false);
@@ -30,6 +31,9 @@ export default function Front() {
         console.error(error);
       });
   }
+  useEffect(() => {
+    field.current.focus();
+  }, []);
 
   return (
     <div className="slide">
@@ -39,7 +43,7 @@ export default function Front() {
           className={wrong ? "shake" : ""}
           onAnimationEnd={removeAnimation}
         >
-          <h2>What room are you looking for?</h2>
+          <h2>Good to see you {localStorage.getItem("name")}!</h2>
           <TextField
             id="outlined-basic"
             label="What are you looking for?"
@@ -47,6 +51,7 @@ export default function Front() {
             style={{ margin: "0px 5px" }}
             size="small"
             value={input}
+            inputRef={field}
             required={true}
             onChange={(e) => setInput(e.target.value)}
           />

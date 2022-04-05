@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./index.css";
-import Front from "./routes/Front";
+import ChooseRoom from "./routes/ChooseRoom";
 import Room from "./routes/Room";
 import NameInput from "./routes/NameInput";
 
@@ -11,7 +11,7 @@ ReactDOM.render(
     <BrowserRouter>
       <div id="container">
         <Routes>
-          <Route path="/" element={<Front />} />
+          <Route path="/" element={<ChooseRoom />} />
           <Route path="/name" element={<NameInput />} />
           <Route path="room/:roomid" element={<Room />} />
           <Route

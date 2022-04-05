@@ -1,18 +1,22 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { TextField, Button, Paper } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import styles from "./NameInput.module.css";
 export default function NameInput() {
   const [name, setName] = useState("");
   const navigate = useNavigate();
+  const field = useRef(null);
   function saveName(e) {
     e.preventDefault();
     localStorage.setItem("name", name);
     navigate("/");
   }
-  if (localStorage.getItem("name") !== null) {
+  useEffect(() => {
+    field.current.focus();
+  }, []);
+  /* if (localStorage.getItem("name") !== null) {
     return null;
-  }
+  } */
   return (
     <div className={styles.nameInput + " slide"}>
       <Paper>
@@ -24,6 +28,7 @@ export default function NameInput() {
             variant="outlined"
             style={{ margin: "0px 5px" }}
             size="small"
+            inputRef={field}
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
