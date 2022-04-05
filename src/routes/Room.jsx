@@ -50,7 +50,7 @@ function Room() {
       <AskQuestion roomid={params.roomid} />
 
       {questions.map((q) => (
-        <Question key={q.id} {...q} />
+        <Question key={q.id} {...q} roomid={params.roomid} />
       ))}
     </>
   );

@@ -5,14 +5,16 @@ import { db } from "../firebase";
 import styles from "./Question.module.css";
 import { stringToColor, getAvatarLetters } from "../utils/strings";
 import { canDelete } from "../utils/auth";
+import { getNextState } from "../utils/states";
 export default function Question(props) {
   function toggleStatus() {
-    update(ref(db, "rooms/mmd-2nd-int/questions/" + props.id), {
-      status: props.status === "Waiting" ? "Getting Help" : "Waiting",
+    console.log(props.status);
+    update(ref(db, "rooms/" + props.roomid + "/questions/" + props.id), {
+      status: getNextState(props.status),
     });
   }
   function deleteQuestion() {
-    remove(ref(db, "rooms/mmd-2nd-int/questions/" + props.id));
+    remove(ref(db, "rooms/" + props.roomid + "/questions/" + props.id));
   }
   return (
     <article className={styles.question}>

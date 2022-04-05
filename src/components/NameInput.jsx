@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { TextField, Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import styles from "./NameInput.module.css";
 export default function NameInput() {
   const [name, setName] = useState("");
   const navigate = useNavigate();
@@ -13,7 +14,8 @@ export default function NameInput() {
     return null;
   }
   return (
-    <div id="nameInput">
+    <div className={styles.nameInput}>
+      <h2>So, what can I call you?</h2>
       <form onSubmit={saveName}>
         <TextField
           id="outlined-basic"
